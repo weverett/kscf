@@ -592,7 +592,7 @@ void kscf_energx()
     int ntotal=0;
     //s=1 p=3 d=6 f=10...
     int numComponents[]={1,3,6,10};
-    double *targets = simint_allocate_target(1789*1789*1789);    
+    double *targets = simint_allocate_target(7*7*7*7);    
 
     for(int x=0;x<pairCounter;x++)
       for(int y=0;y<x+1;y++)
@@ -704,9 +704,9 @@ void kscf_energx()
     
 		F[ij]+=D0[kl]*(2*targets[ijkl]-targets[ikjl]);
 	      }
-    printf("newFock\n");
+    printf("New Fock Matrix\n");
     for(int i=0; i<nnSize; i++)
-      printf("i=%d, val=%f", i, F[i]);
+      printf("i=%d, val=%f\n", i, F[i]);
     ////////////////////////////////////////////////////////////////////////////
     //  clean up
     ////////////////////////////////////////////////////////////////////////////
