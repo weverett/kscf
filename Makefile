@@ -5,10 +5,10 @@ kscf: kscf_init.o kscf_energx.o
 	mv *.o objects
 
 kscf_init.o: kscf_init.c
-	icc -std=c99 -I../ -L../simint/libsimint.a -c kscf_init.c 
+	icc -I../ -w3 -diag-disable:remark -mkl -DMKL_ILP64 -c kscf_init.c 
 
 kscf_energx.o: kscf_energx.c
-	icc -std=c99 -I../ -L../simint/libsimint.a -c kscf_energx.c 
+	icc -I../ -w3 -diag-disable:remark -mkl -DMKL_ILP64 -c kscf_energx.c 
 
 clean:
 	rm objects/*.o
